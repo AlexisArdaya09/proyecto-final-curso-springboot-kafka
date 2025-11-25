@@ -19,7 +19,7 @@ El proyecto está compuesto por tres microservicios principales que se comunican
 ### 1. Product Service
 **Repositorio**: [final-project-product-service](https://github.com/AlexisArdaya09/final-project-product-service)
 
-Servicio encargado de la gestión del catálogo de productos. Proporciona operaciones CRUD para productos y publica eventos relacionados con cambios en el catálogo.
+Servicio encargado de la gestión del catálogo de productos. Proporciona operaciones CRUD para productos y categorías, y publica eventos relacionados con cambios en el catálogo.
 
 ### 2. Order Service
 **Repositorio**: [final-project-order-service](https://github.com/AlexisArdaya09/final-project-order-service)
@@ -49,6 +49,100 @@ Antes de comenzar, asegúrate de tener instalado:
 - IDE: IntelliJ IDEA Ultimate
 - Git
 - Docker Desktop
+
+## 🚀 Inicio del Proyecto
+
+Sigue estos pasos para configurar y ejecutar el proyecto correctamente:
+
+### 1. Configurar Product Service
+
+Navega al directorio del servicio de productos:
+
+```bash
+cd final-project-product-service
+```
+
+### 2. Levantar Infraestructura con Docker Compose
+
+Ejecuta Docker Compose para levantar PostgreSQL y Kafka:
+
+```bash
+docker-compose up -d
+```
+
+Esto iniciará:
+- **PostgreSQL**: Base de datos para los microservicios
+- **Apache Kafka**: Sistema de mensajería para comunicación entre servicios
+
+### 3. Crear las Bases de Datos
+
+Una vez que los contenedores estén en ejecución, crea las bases de datos necesarias:
+
+```sql
+-- Conectarse a PostgreSQL (puedes usar pgAdmin, DBeaver o psql)
+-- O ejecutar desde el contenedor de PostgreSQL
+
+-- Base de datos para Product Service
+CREATE DATABASE ecommerce;
+
+-- Base de datos para Order Service
+CREATE DATABASE ecommerce_orders;
+
+-- Base de datos para Inventory Service
+CREATE DATABASE ecommerce_inventory;
+```
+
+**Nota**: Puedes ejecutar estos comandos SQL desde tu cliente de PostgreSQL preferido o desde el contenedor:
+
+```bash
+docker exec -it <nombre_contenedor_postgres> psql -U <usuario> -c "CREATE DATABASE ecommerce;"
+docker exec -it <nombre_contenedor_postgres> psql -U <usuario> -c "CREATE DATABASE ecommerce_orders;"
+docker exec -it <nombre_contenedor_postgres> psql -U <usuario> -c "CREATE DATABASE ecommerce_inventory;"
+```
+
+O tambien puedes hacerlo desde  IDE: IntelliJ IDEA Ultimate, sigue los siguientes pasos:
+
+- En la parte derecha ubica el icono de las bases de datos
+   ![img.jpg](screenshots/icono-db.jpg)
+
+- Luego click en query console
+    ![img.jpg](screenshots/query-console.jpg)
+
+- Ejecuta los siguientes comandos para crear las bases de datos
+```sql
+-- Conectarse a PostgreSQL (puedes usar pgAdmin, DBeaver o psql)
+-- O ejecutar desde el contenedor de PostgreSQL
+
+-- Base de datos para Product Service
+CREATE DATABASE ecommerce;
+
+-- Base de datos para Order Service
+CREATE DATABASE ecommerce_orders;
+
+-- Base de datos para Inventory Service
+CREATE DATABASE ecommerce_inventory;
+```
+### 4. Ejecutar los Microservicios
+
+Para poder levantar correctamente los microservicios, iniciaremos con **Product Service** y luego seguiremos con los demás servicios en orden. Cada microservicio tiene su propio README con instrucciones detalladas.
+
+#### 4.1. Product Service
+
+- Ve al repositorio de [Product Service](https://github.com/AlexisArdaya09/final-project-product-service)
+- Allí encontrarás las instrucciones específicas para levantar el servicio
+- Sigue los pasos indicados en su README
+
+#### 4.2. Inventory Service
+
+- Ve al repositorio de [Inventory Service](https://github.com/AlexisArdaya09/final-project-inventory-service)
+- Allí encontrarás las instrucciones específicas para levantar el servicio
+- Sigue los pasos indicados en su README
+
+#### 4.3. Order Service
+
+- Ve al repositorio de [Order Service](https://github.com/AlexisArdaya09/final-project-order-service)
+- Allí encontrarás las instrucciones específicas para levantar el servicio
+- Sigue los pasos indicados en su README
 
 ## 👤 Autor
 
