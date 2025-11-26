@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "5ea064e5-45f6-4412-a696-f39afee6c32a",
+		"name": "Colección Flujo completo End-to-End",
+		"description": "Colección completa para probar los 3 microservicios (product-service, order-service, inventory-service) con comunicación via Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "957491",
+		"_collection_link": "https://gold-crater-384986.postman.co/workspace/a0ed34ae-6d92-44d9-9c5e-a2fa452f42bb/collection/957491-5ea064e5-45f6-4412-a696-f39afee6c32a?action=share&source=collection_link&creator=957491"
+	},
+	"variable": [
+		{
+			"key": "productServiceUrl",
+			"value": "http://localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "orderServiceUrl",
+			"value": "http://localhost:8082",
+			"type": "string"
+		},
+		{
+			"key": "inventoryServiceUrl",
+			"value": "http://localhost:8083",
+			"type": "string"
+		}
+	],
+	"item": [
+				{
+					"name": "Step 1: Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Electrónica\",\n  \"description\": \"Productos electrónicos y tecnología\"\n}"
+						},
+						"url": {
+							"raw": "{{productServiceUrl}}/api/categories",
+							"host": [
+								"{{productServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Create Products (Laptop)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Laptop Dell XPS 15\",\n  \"description\": \"Laptop profesional con Intel i7\",\n  \"price\": 1500.00,\n  \"categoryId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{productServiceUrl}}/api/products",
+							"host": [
+								"{{productServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 3: Create Inventory (50 Laptops)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": 1,\n  \"productName\": \"Laptop Dell XPS 15\",\n  \"initialStock\": 50\n}"
+						},
+						"url": {
+							"raw": "{{inventoryServiceUrl}}/api/inventory",
+							"host": [
+								"{{inventoryServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 4: Create Order (5 Laptops)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": 1,\n  \"quantity\": 5,\n  \"customerName\": \"Juan Perez\",\n  \"customerEmail\": \"juan@example.com\",\n  \"totalAmount\": 7500.00\n}"
+						},
+						"url": {
+							"raw": "{{orderServiceUrl}}/api/orders",
+							"host": [
+								"{{orderServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Step 5: Wait 2 seconds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{orderServiceUrl}}/api/orders/1",
+							"host": [
+								"{{orderServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						},
+						"description": "Esperar 2 segundos antes de ejecutar. Debe mostrar status: CONFIRMED"
+					},
+					"response": []
+				},
+				{
+					"name": "Step 6: Verify Inventory Updated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{inventoryServiceUrl}}/api/inventory/product/1",
+							"host": [
+								"{{inventoryServiceUrl}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"product",
+								"1"
+							]
+						},
+						"description": "Debe mostrar availableStock: 45, reservedStock: 5"
+					},
+					"response": []
+				}
+			]
+}

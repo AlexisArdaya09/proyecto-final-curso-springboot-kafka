@@ -136,6 +136,93 @@ Para poder levantar correctamente los microservicios, iniciaremos con **Product 
 - Allí encontrarás las instrucciones específicas para levantar el servicio
 - Sigue los pasos indicados en su README
 
+### 4. Importar Colecciones de Postman
+
+Para probar los endpoints de cada microservicio, puedes importar las colecciones de Postman. Dispones de dos opciones:
+
+**Instrucciones**:
+1. Haz clic en el enlace anterior
+2. Se abrirá Postman y podrás importar la colección completa directamente
+3. La colección incluye todos los endpoints de los tres microservicios organizados por carpetas
+
+**Configuración de Variables de Entorno**:
+
+Asegúrate de configurar las siguientes variables en Postman (o en el entorno de la colección):
+
+- `baseUrlProductService`: `http://localhost:8081`
+- `baseUrlOrderService`: `http://localhost:8082`
+- `baseUrlInventoryService`: `http://localhost:8083`
+
+#### 4.1. Colecciones Individuales
+
+Si prefieres importar las colecciones individuales desde GitHub:
+
+##### 4.1.1. Product Service Collection
+
+**Base URL**: `http://localhost:8081`
+
+**Descargar**: [ProductService.postman_collection.json](https://github.com/AlexisArdaya09/final-project-product-service/blob/main/postman/ProductService.postman_collection.json)
+
+**Instrucciones**:
+1. Haz clic en el enlace anterior
+2. En la página de GitHub, haz clic en el botón "Raw" para ver el contenido JSON
+3. Copia la URL del archivo raw o descarga el archivo
+4. En Postman, ve a **Import** → **Link** y pega la URL raw, o importa el archivo descargado
+
+**URL Raw para importación directa**:
+```
+https://raw.githubusercontent.com/AlexisArdaya09/final-project-product-service/main/postman/ProductService.postman_collection.json
+```
+
+##### 4.1.2. Order Service Collection
+
+**Base URL**: `http://localhost:8082`
+
+**Descargar**: [OrderService.postman_collection.json](https://github.com/AlexisArdaya09/final-project-order-service/blob/main/postman/OrderService.postman_collection.json)
+
+**Instrucciones**:
+1. Haz clic en el enlace anterior
+2. En la página de GitHub, haz clic en el botón "Raw" para ver el contenido JSON
+3. Copia la URL del archivo raw o descarga el archivo
+4. En Postman, ve a **Import** → **Link** y pega la URL raw, o importa el archivo descargado
+
+**URL Raw para importación directa**:
+```
+https://raw.githubusercontent.com/AlexisArdaya09/final-project-order-service/main/postman/OrderService.postman_collection.json
+```
+
+##### 4.1.3. Inventory Service Collection
+
+**Base URL**: `http://localhost:8083`
+
+**Descargar**: [InventoryService.postman_collection.json](https://github.com/AlexisArdaya09/final-project-inventory-service/blob/main/postman/InventoryService.postman_collection.json)
+
+**Instrucciones**:
+1. Haz clic en el enlace anterior
+2. En la página de GitHub, haz clic en el botón "Raw" para ver el contenido JSON
+3. Copia la URL del archivo raw o descarga el archivo
+4. En Postman, ve a **Import** → **Link** y pega la URL raw, o importa el archivo descargado
+
+**URL Raw para importación directa**:
+```
+https://raw.githubusercontent.com/AlexisArdaya09/final-project-inventory-service/main/postman/InventoryService.postman_collection.json
+```
+
+
+#### 5. Colección Flujo completo End-to-End
+
+**Colección que contiene flujo completo** que incluye los pasos realizar todo el flujo:
+
+🔗 [Colección Flujo completo End-to-End](https://gold-crater-384986.postman.co/workspace/CURSO-SPRING-BOOT-KAFKA~a0ed34ae-6d92-44d9-9c5e-a2fa452f42bb/folder/957491-d8604384-85c5-4e31-b703-a9f8e76a432b?action=share&creator=957491&ctx=documentation)
+
+**Nota**: 
+- Asegúrate de que los microservicios estén en ejecución antes de probar los endpoints en Postman
+- Cada colección incluye ejemplos de casos exitosos y casos de error para facilitar las pruebas
+- Los puertos por defecto de cada servicio son:
+  - **Product Service**: `8081`
+  - **Order Service**: `8082`
+  - **Inventory Service**: `8083`
+
 ## 👤 Autor
 
 **Alexis Ardaya**
