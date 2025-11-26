@@ -54,17 +54,9 @@ Antes de comenzar, asegúrate de tener instalado:
 
 Sigue estos pasos para configurar y ejecutar el proyecto correctamente:
 
-### 1. Configurar Product Service
+### 1. Levantar Infraestructura con Docker Compose
 
-Navega al directorio del servicio de productos:
-
-```bash
-cd final-project-product-service
-```
-
-### 2. Levantar Infraestructura con Docker Compose
-
-Ejecuta Docker Compose para levantar PostgreSQL y Kafka:
+Desde este repositorio principal, ejecuta Docker Compose para levantar PostgreSQL y Kafka:
 
 ```bash
 docker-compose up -d
@@ -74,7 +66,7 @@ Esto iniciará:
 - **PostgreSQL**: Base de datos para los microservicios
 - **Apache Kafka**: Sistema de mensajería para comunicación entre servicios
 
-### 3. Crear las Bases de Datos
+### 2. Crear las Bases de Datos
 
 Una vez que los contenedores estén en ejecución, crea las bases de datos necesarias:
 
@@ -122,23 +114,23 @@ CREATE DATABASE ecommerce_orders;
 -- Base de datos para Inventory Service
 CREATE DATABASE ecommerce_inventory;
 ```
-### 4. Ejecutar los Microservicios
+### 3. Ejecutar los Microservicios
 
 Para poder levantar correctamente los microservicios, iniciaremos con **Product Service** y luego seguiremos con los demás servicios en orden. Cada microservicio tiene su propio README con instrucciones detalladas.
 
-#### 4.1. Product Service
+#### 3.1. Product Service
 
 - Ve al repositorio de [Product Service](https://github.com/AlexisArdaya09/final-project-product-service)
 - Allí encontrarás las instrucciones específicas para levantar el servicio
 - Sigue los pasos indicados en su README
 
-#### 4.2. Inventory Service
+#### 3.2. Inventory Service
 
 - Ve al repositorio de [Inventory Service](https://github.com/AlexisArdaya09/final-project-inventory-service)
 - Allí encontrarás las instrucciones específicas para levantar el servicio
 - Sigue los pasos indicados en su README
 
-#### 4.3. Order Service
+#### 3.3. Order Service
 
 - Ve al repositorio de [Order Service](https://github.com/AlexisArdaya09/final-project-order-service)
 - Allí encontrarás las instrucciones específicas para levantar el servicio
@@ -151,7 +143,3 @@ Para poder levantar correctamente los microservicios, iniciaremos con **Product 
 ## 📄 Licencia
 
 Este proyecto es parte de un curso educativo.
-
----
-
-⭐ Si este proyecto te resulta útil, considera darle una estrella en GitHub.
