@@ -223,6 +223,26 @@ https://raw.githubusercontent.com/AlexisArdaya09/final-project-inventory-service
   - **Order Service**: `8082`
   - **Inventory Service**: `8083`
 
+#### 6. Ejecutar paso a paso el flujo completo End-to-End
+
+##### 6.1. PASO 1 - Crear Categoria
+![img.png](screenshots/test-end-to-end/step-1-add-category.png)
+
+##### 6.2. PASO 2 - Crear Producto
+![img.png](screenshots/test-end-to-end/step-2-add-product.png)
+
+##### 6.3. PASO 3 - Agregar stock al producto
+![img.png](screenshots/test-end-to-end/step-3-add-stock.png)
+
+##### 6.4. PASO 4 - Crear Pedido
+![img.png](screenshots/test-end-to-end/step-4-create-order.png)
+
+##### 6.5. PASO 5 - Verificar que el pedido esta Confirmado
+![img.png](screenshots/test-end-to-end/step-5-confirm-order.png)
+
+#### 6.6. PASO 6 - Verificar stock actualizado
+![img.png](screenshots/test-end-to-end/step-6-verify-stock.png)
+
 ## 👤 Autor
 
 **Alexis Ardaya**
