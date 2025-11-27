@@ -209,7 +209,7 @@ https://raw.githubusercontent.com/AlexisArdaya09/final-project-inventory-service
 ```
 
 
-#### 5. Colección Flujo completo End-to-End
+### 5. Colección Flujo completo End-to-End
 
 **Colección que contiene flujo completo** que incluye los pasos realizar todo el flujo:
 
@@ -223,7 +223,7 @@ https://raw.githubusercontent.com/AlexisArdaya09/final-project-inventory-service
   - **Order Service**: `8082`
   - **Inventory Service**: `8083`
 
-#### 6. Ejecutar paso a paso el flujo completo End-to-End
+### 6. Ejecutar paso a paso el flujo completo End-to-End
 
 ##### 6.1. PASO 1 - Crear Categoria
 ![img.png](screenshots/test-end-to-end/step-1-add-category.png)
